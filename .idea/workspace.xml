@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3216a26e-bae6-49a3-8282-c7cc07f0f673" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/apache-maven-3.6.2" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Xr4ArH76BDdYvrjm4wGgXTWmSG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hrm-web-system/src" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring\hrm-web-parent\hrm-web-system\src" />
+      <recent name="D:\spring\hrm-web-parent\hrm-web-system\src\views" />
+      <recent name="D:\spring\hrm-web-parent\hrm-web-system" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3216a26e-bae6-49a3-8282-c7cc07f0f673" name="Default Changelist" comment="" />
+      <created>1581790739110</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581790739110</updated>
+      <workItem from="1581790755468" duration="1959000" />
+      <workItem from="1581936741235" duration="765000" />
+      <workItem from="1581953708843" duration="862000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1581936916026">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581936916026" />
+    <state width="1877" height="252" key="GridCell.Tab.0.bottom" timestamp="1581794930205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.0.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581794930205" />
+    <state width="1877" height="252" key="GridCell.Tab.0.center" timestamp="1581794930205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.0.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581794930205" />
+    <state width="1877" height="252" key="GridCell.Tab.0.left" timestamp="1581794930205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.0.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581794930205" />
+    <state width="1877" height="252" key="GridCell.Tab.0.right" timestamp="1581794930205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.0.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581794930205" />
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1581936894219">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581936894219" />
+    <state x="334" y="244" key="new project wizard" timestamp="1581790879606">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="334" y="244" key="new project wizard/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1581790879606" />
+  </component>
+</project>
