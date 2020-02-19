@@ -124,7 +124,6 @@
               this.addFormVisible = true;
             },
             addSubmit(){
-                //提交
                 this.$http.post("/course/courseType/save",this.addForm).then(res=>{
                     var ajaxResult = res.data;
                     if(ajaxResult.success){

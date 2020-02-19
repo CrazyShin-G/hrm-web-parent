@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!--:model="tenant" 数据双向绑定-->
-    <!--ref="tenantForm" id="tenantForm",给form去一个名字-->
-    <!--:rules="formRules" 校验规则-->
     <el-form :model="tenant" ref="tenantForm" :rules="formRules" label-position="left" label-width="100px" class="demo-ruleForm login-container">
       <h3 class="title">公司入驻</h3>
       <el-form-item prop="companyName"label="公司名称">
@@ -16,18 +13,17 @@
         <el-button size="small" type="primary" @click="selectAdrress">选择</el-button>
       </el-form-item>
       <el-form-item prop="logo" label="公司Logo">
-        <el-input type="text" v-model="tenant.logo" auto-complete="off" placeholder="请输入logo！"></el-input>
-<!--        <el-upload-->
-<!--                class="upload-demo"-->
-<!--                action="http://localhost/file/upload"-->
-<!--                :on-preview="handlePreview"-->
-<!--                :on-remove="handleRemove"-->
-<!--                :on-success="handleSuccess"-->
-<!--                :file-list="fileList"-->
-<!--                list-type="picture">-->
-<!--          <el-button size="small" type="primary">点击上传</el-button>-->
-<!--          <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
-<!--        </el-upload>-->
+      <el-upload
+              class="upload-demo"
+              action="http://localhost:1030/services/common/fastDfs/"
+              :on-preview="handlePreview"
+              :on-remove="handleRemove"
+              :on-success="handleSuccess"
+              :file-list="fileList"
+              list-type="picture">
+        <el-button size="small" type="primary">点击上传</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+      </el-upload>
       </el-form-item>
       <el-form-item prop="username" label="公司账号">
         <el-input type="text" v-model="tenant.username" auto-complete="off" placeholder="请输入账号！"></el-input>
@@ -55,7 +51,6 @@
       <baidu-map :center="{lng: 116.403765, lat: 39.914850}" :zoom="11">
         <bm-view class="map"></bm-view>
         <bm-control :offset="{width: '10px', height: '10px'}">
-          <!--:sugStyle="{zIndex: 2100} 让搜索提示上浮-->
           <bm-auto-complete v-model="keyword" :sugStyle="{zIndex: 2100}">
             <div style="margin-bottom:10px">
               <input id="searchInput" type="text" placeholder="请输入关键字" class="searchinput"/>
@@ -77,7 +72,7 @@
     export default {
         data() {
             var validatePass2 = (rule, value, callback) => {
-                console.log(value); //确认密码
+                console.log(value);
                 if (value === '') {
                     callback(new Error('请再次输入密码'))
                 } else if (value !== this.tenant.password) {
@@ -89,9 +84,7 @@
             return {
                 keyword:'',
                 dialogVisable:false,
-                // fileList: [{"name":"xxx","http://localhost/"+this.tenant.logo}],
-                fileList: [{name:"xxx",url:"http://localhost/uploads/63f18e2b-0717-4d38-b1d8-b29ab463706f.jpg"}],
-                //tenant:tenant 为了做数据表单校验不要嵌套对象
+                fileList: [],
                 tenant: {
                     companyName: '',
                     companyNum: '',
@@ -129,17 +122,15 @@
                         { required: true, message: '请输入密码!', trigger: 'blur' }
                     ],
                     comfirmPassword: [
-                        {required: true,validator: validatePass2, trigger: 'blur' } //自定义校验规则
+                        {required: true,validator: validatePass2, trigger: 'blur' }
                     ]
                 }
             };
         },
         methods: {
             selectAdrressConfirm(){
-              //获取值搜索框值,设置给地址
                 var searchInputV=document.getElementById("searchInput").value;
                 this.tenant.address = searchInputV;
-                //关闭对话框
                 this.dialogVisable = false;
             },
             selectAdrress(){
@@ -150,22 +141,33 @@
                 console.log(response);
                 console.log(file);
                 console.log(fileList);
-                this.tenant.logo = response;
+                this.tenant.logo = response.resultObj;
             },
             handleRemove(file, fileList) {
-                console.log(file, fileList);
+              var filePath =file.response.resultObj;
+              this.$http.delete("/common/fastDfs/?path="+filePath)
+                      .then(res=>{
+                        if(res.data.success){
+                          this.$message({
+                            message: '删除成功!',
+                            type: 'success'
+                          });
+                        }else{
+                          this.$message({
+                            message: '删除失败!',
+                            type: 'error'
+                          });
+                        }
+                      })
             },
             handlePreview(file) {
                 console.log(file);
             },
             settledIn(){
                 this.$refs.tenantForm.validate((valid) => {
-                    //校验表单成功后才做一下操作
                     if (valid) {
                         this.$confirm('确认入驻吗？', '提示', {}).then(() => {
-                            //拷贝后面对象的值到新对象,防止后面代码改动引起模型变化
-                            let para = Object.assign({}, this.tenant); //tenant 本身这个参数里面就有公司和管理员信息
-                            // 为了后台好接收，封装一个对象放到里面
+                            let para = Object.assign({}, this.tenant);
                             let admin = {
                               username: para.username,
                               tel: para.username,
@@ -174,16 +176,13 @@
                               comfirmPassword:para.username
                             }
                             para.admin = admin;
-                            //判断是否有id有就是修改,否则就是添加
                             this.$http.put("/sysmanage/tenant",para).then((res) => {
                                 if(res.data.success){
                                     this.$message({
                                         message: '操作成功!',
                                         type: 'success'
                                     });
-                                    //重置表单
                                     this.$refs['tenantForm'].resetFields();
-                                    //跳转登录页面
                                     this.$router.push({ path: '/login' });
                                 }
                                 else{
