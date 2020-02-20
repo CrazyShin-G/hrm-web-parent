@@ -13,6 +13,7 @@ import Page4 from './views/nav2/Page4.vue'
 import Page5 from './views/nav2/Page5.vue'
 import Page6 from './views/nav3/Page6.vue'
 import echarts from './views/charts/echarts.vue'
+import Course from './views/course/Course.vue'
 
 let routes = [
     {
@@ -73,7 +74,7 @@ let routes = [
         iconCls: 'fa fa-id-card-o',
         children: [
             { path: '/courseType', component: CourseType, name: '课程类型' },
-            { path: '/page5', component: Page5, name: '页面5' }
+            { path: '/course', component: Course, name: '课程管理' }
         ]
     },
     {

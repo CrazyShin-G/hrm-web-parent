@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hrm-web-system/src/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hrm-web-system/src/views/course" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -38,6 +38,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring\hrm-web-parent\hrm-web-system\src\views\course" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-system\src\views" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-system\src" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-system" />
@@ -69,6 +70,7 @@
       <workItem from="1581936741235" duration="765000" />
       <workItem from="1581953708843" duration="862000" />
       <workItem from="1582092840263" duration="1969000" />
+      <workItem from="1582203806277" duration="1326000" />
     </task>
     <servers />
   </component>
