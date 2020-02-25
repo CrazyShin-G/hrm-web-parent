@@ -22,7 +22,7 @@
 		</el-col>
 
 		<!--列表v-loading="listLoading"-->
-		<el-table @row-click="rowClick" :data="courses" v-loading="listLoading" highlight-current-row  style="width: 100%;">
+		<el-table @selection-change="selsChange" @row-click="rowClick" :data="courses" v-loading="listLoading" highlight-current-row   style="width: 100%;">
 			<!--多选框-->
 			<el-table-column type="selection" width="55">
 			</el-table-column>
@@ -154,7 +154,7 @@
                 return this.$refs.myQuillEditor.quill
             }
 		},
-        components: {//使用编辑器
+        components: {
             quillEditor
         },
 		data() {
@@ -165,7 +165,7 @@
                     label:"name"
 				},
                 priceDisabled:true,
-                editorOption: {},//富文本编辑框配置
+                editorOption: {},
 				fileList:[],
 			    grades:[
 					{"id":1 , "name":"低级"},
@@ -206,16 +206,19 @@
                     pic:''
 				},
                 listLoading:false,
-				//查询对象
 				filters:{
 					keywords:''
 				},
-				page:1,//当前页,要传递到后台的
-				total:0, //分页总数
-			    courses:[], //当前页数据
+				page:1,
+				total:0,
+			    courses:[],
+				sels: [],
 			}
 		},
 		methods: {
+			selsChange: function (sels) {
+				this.sels = sels;
+			},
 			handleSuccess(response, file, fileList){
 				console.log("===========")
 				console.log(response);
@@ -229,12 +232,12 @@
 						.then(res=>{
 							if(res.data.success){
 								this.$message({
-									message: '删除成功!',
+									message: '成功!',
 									type: 'success'
 								});
 							}else{
 								this.$message({
-									message: '删除失败!',
+									message: '失败!',
 									type: 'error'
 								});
 							}
@@ -247,18 +250,15 @@
                 this.addForm.courseTypeId = this.addForm.courseTypeId[this.addForm.courseTypeId.length - 1];
 
                 var course ={
-
 					courseTypeId:this.addForm.courseTypeId,
 					name:this.addForm.name,
 					users:this.addForm.users,
 					grade:this.addForm.gradeId,
 					pic:this.addForm.pic,
-
 					courseDetail:{
 						description:this.addForm.description,
 						intro:this.addForm.intro
 					},
-
 					courseMarket:{
 						charge:this.addForm.chargeId,
 						qq:this.addForm.qq,
@@ -269,14 +269,14 @@
                     var ajaxResult = res.data;
                     if(ajaxResult.success){
                         this.$message({
-                            message: '保存成功!',
+                            message: '成功!',
                             type: 'success'
                         });
                         this.addFormVisible = false;
                         this.getCourses();
                     }else{
                         this.$message({
-                            message: '保存失败!',
+                            message: '失败!',
                             type: 'error'
                         });
                     }
@@ -305,7 +305,6 @@
                 this.getCourses();
 			},
             getCourses(){
-
 				let para = {
 				    "page":this.page,
 					"keyword":this.filters.keywords
@@ -319,12 +318,13 @@
                     });
 			},
             onLineCourse(){
-				if(!this.row || this.row  === ""){
-                    this.$message({ message: '请选中数据',type: 'error'});
-				    return;
+				//获取选中的行
+				if(!this.sels || this.sels.length  <1){
+					this.$message({ message: '请选中数据',type: 'error'});
+					return;
 				}
-
-				this.$http.post("/course/course/onLineCourse/"+this.row.id).then(res=>{
+				var ids = this.sels.map(item => item.id);
+				this.$http.post("/course/course/onLine",ids).then(res=>{
 				    var ajaxResult = res.data;
 				    if(ajaxResult.success){
                         this.$message({ message: '成功.',type: 'success'});
@@ -335,15 +335,17 @@
 				})
 			},
             offLineCourse(){
-                if(!this.row || this.row  === ""){
+
+                //获取选中的行
+                if(!this.sels || this.sels.length  <1){
                     this.$message({ message: '请选中数据',type: 'error'});
                     return;
                 }
-
-                this.$http.post("/course/course/offLineCourse/"+this.row.id).then(res=>{
+				var ids = this.sels.map(item => item.id);
+                this.$http.post("/course/course/offLine",ids).then(res=>{
                     var ajaxResult = res.data;
                     if(ajaxResult.success){
-                        this.$message({ message: '成功.',type: 'success'});
+                        this.$message({ message: '老铁，下线成功.',type: 'success'});
                         this.getCourses();
                     }else{
                         this.$message({ message: ajaxResult.message,type: 'error'});

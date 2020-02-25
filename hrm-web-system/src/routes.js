@@ -5,7 +5,9 @@ import Home from './views/Home.vue'
 import Department from './views/itsource/department.vue'
 import TenantType from './views/sysmanage/tenantType.vue'
 import Tenant from './views/sysmanage/tenant.vue'
+import staticPageInit from './views/sysmanage/staticPageInit.vue'
 import CourseType from './views/course/CourseType.vue'
+import Pager from './views/page/Pager.vue'
 import Role from './views/itsource/role.vue'
 import Form from './views/nav1/Form.vue'
 import user from './views/nav1/user.vue'
@@ -58,6 +60,18 @@ let routes = [
     {
         path: '/',
         component: Home,
+        name: '页面中心',
+        iconCls: 'fa fa-id-card-o',
+        children: [
+            { path: '/site', component: Pager, name: '站点管理' },
+            { path: '/pager', component: Pager, name: '页面管理' },
+            { path: '/pageConfig', component: Pager, name: '页面配置管理' }
+        ]
+    }
+    ,
+    {
+        path: '/',
+        component: Home,
         name: '系统管理',
         iconCls: 'el-icon-message',
         children: [
@@ -84,7 +98,7 @@ let routes = [
         iconCls: 'fa fa-address-card',
         leaf: true,
         children: [
-            { path: '/page6', component: Page6, name: '导航三' }
+            { path: '/staticPageInit', component: staticPageInit, name: '静态化页面初始化' }
         ]
     },
     {
