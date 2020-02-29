@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/hrm-web-course/hrm-web-course.iml" filepath="$PROJECT_DIR$/hrm-web-course/hrm-web-course.iml" />
       <module fileurl="file://$PROJECT_DIR$/hrm-web-parent.iml" filepath="$PROJECT_DIR$/hrm-web-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/hrm-web-system/hrm-web-system.iml" filepath="$PROJECT_DIR$/hrm-web-system/hrm-web-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrm-web-user/hrm-web-user.iml" filepath="$PROJECT_DIR$/hrm-web-user/hrm-web-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/pageAgent/pageAgent.iml" filepath="$PROJECT_DIR$/pageAgent/pageAgent.iml" />
     </modules>
   </component>

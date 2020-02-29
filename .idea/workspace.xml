@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hrm-web-course" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hrm-web-user" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -38,11 +38,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring\hrm-web-parent\hrm-web-user" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-course" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-system\src\views\sysmanage" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-system\src\views" />
       <recent name="D:\spring\hrm-web-parent\hrm-web-system\src\views\course" />
-      <recent name="D:\spring\hrm-web-parent\hrm-web-system\src" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -75,6 +75,7 @@
       <workItem from="1582385877922" duration="1159000" />
       <workItem from="1582622788842" duration="901000" />
       <workItem from="1582722001246" duration="1435000" />
+      <workItem from="1582974338860" duration="375000" />
     </task>
     <servers />
   </component>
@@ -110,9 +111,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="344" key="com.intellij.ide.util.TipDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1582722140026" />
-    <state x="334" y="244" key="new project wizard" timestamp="1582725512149">
+    <state x="334" y="244" key="new project wizard" timestamp="1582974382378">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="334" y="244" key="new project wizard/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1582725512149" />
+    <state x="334" y="244" key="new project wizard/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1582974382378" />
   </component>
 </project>
