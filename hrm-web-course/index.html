@@ -17,11 +17,15 @@
 		<script type="text/javascript" src="js/layer.js"></script>
 		<script type="text/javascript" src="js/jquery.method.js"></script>
 		<script type="text/javascript" src="js/jquery.modal.js"></script>
+		<!--导入vue和axios  原来使用的npm,纯前端项目没有npm，当做js引入就ok-->
+		<script type="text/javascript" src="js/plugins/vue/dist/vue.js"></script>
+		<script type="text/javascript" src="js/plugins/axios/dist/axios.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
 		<!-- 图片缓载js -->
 		<script type="text/javascript" src="js/jquery.lazyload.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+			    alert(localStorage.getItem("user"));
 				// 搜索框提示显示
 				$('.SZY-SEARCH-BOX .SZY-SEARCH-BOX-KEYWORD').focus(function() {
 					$(".SZY-SEARCH-BOX .SZY-SEARCH-BOX-HELPER").show();

@@ -8,9 +8,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link type="text/css" rel="stylesheet" href="css/common.css">
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/plugins/vue/dist/vue.js"></script>
-		<script type="text/javascript" src="js/plugins/axios/dist/axios.js"></script>
-		<!--common.js依赖于axios-->
 		<script type="text/javascript" src="js/common.js"></script>
 		<script type="text/javascript" src="js/login.js"></script>
 		<link type="text/css" rel="stylesheet" href="css/login.css">
@@ -18,9 +15,9 @@
 		<script type="text/javascript" src="js/layer.js"></script>
 		<script type="text/javascript" src="js/jquery.method.js"></script>
 		<script type="text/javascript" src="js/placeholder.js"></script>
-		<script type="text/javascript" src="js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="js/jquery.supersized.min.js"></script>
-
+		<script type="text/javascript" src="js/plugins/vue/dist/vue.js"></script>
+		<script type="text/javascript" src="js/plugins/axios/dist/axios.js"></script>
 	</head>
 
 	<body>
@@ -460,6 +457,9 @@
 						});
 					</script>
 					<script type="text/javascript">
+                        axios.defaults.baseURL = "http://127.0.0.1:1030/services"//配置前缀
+                        Vue.prototype.$http = axios //给Vue这个类添加一个原型的属性,这个类的对象都能调用
+                        Vue.config.productionTip = false
                         $().ready(function(){
                             new Vue({
                                 el: ".login-wrap",
@@ -473,29 +473,7 @@
                                 },
                                 methods: {
                                     login(){
-                                        //4.发送ajax请求
-                                        this.$http.post("/user/sso/login",this.formParams).then(res=>{
-                                            var ajaxResult = res.data;
-                                            if(ajaxResult.success){
-                                                alert("登录成功");
-
-												let accessToken = ajaxResult.resultObj;
-                                                //通过cookie共享accessToken给其他站点  user不能直接放入cookie,因为不安全,但是可以
-                                                //存放access-token到时通过access-token就能获取用户了
-                                                setCookie("access-token",accessToken,"m30"); //session过期也是30分钟
-                                                //保存用户到localStorage
-                                                this.$http.get("/user/sso/ac/"+accessToken).then(res=>{
-                                                    var user = res.data;
-                                                    localStorage.setItem("user",user)
-                                                 })
-												//跳转到主页面 localhost和127.0.0.1不同的不能共享cookie
-												//location.href = "http://user.hrm.com:6003/user.home.html"
-												location.href = "http://127.0.0.1:6003/user.home.html"
-												//以后所有对后端服务的访问都要携带accessToken
-                                            }else{
-                                                alert("登录失败:"+ajaxResult.message);
-                                            }
-                                        })
+                                        alert(0);
 									}
 								}
                             })
